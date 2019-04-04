@@ -1,4 +1,4 @@
-(ns miracle.save)
+(ns save)
 
 (def ^:dynamic *max-saves* "The maximum number of saves per id." 100)
 
