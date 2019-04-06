@@ -7,5 +7,5 @@ Try it out with:
 {:deps
  {github-saikyun/miracle.save
   {:git/url "https://github.com/saikyun/miracle.save"
-   :sha     "commit-sha-that-you-want"}}}
+   :sha     "e49fa76"}}}
 ```
