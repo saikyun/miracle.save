@@ -3,6 +3,8 @@ Tiny clojure lib for saving/loading local bindings, useful for debugging.
 
 Example of usage:
 ```
+(use 'miracle.save)
+
 (defn add [x y] (save :a) (+ x y))
 (add 5 10)
 (ld :a)
