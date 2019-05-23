@@ -58,5 +58,5 @@ Try it out with:
 {:deps
  {github-saikyun/miracle.save
   {:git/url "https://github.com/saikyun/miracle.save"
-   :sha     "e49fa76e6a5c34f936729b94c800727559d06da9"}}}
+   :sha     "3d54fe9904fd324b82acb2692d46d227505f3891"}}}
 ```
