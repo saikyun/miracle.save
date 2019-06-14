@@ -1,4 +1,5 @@
 [![Clojars Project](https://img.shields.io/clojars/v/miracle-save.svg)](https://clojars.org/miracle-save)
+[![cljdoc badge](https://cljdoc.org/badge/miracle-save/miracle-save)](https://cljdoc.org/d/miracle-save/miracle-save/0.0.1/doc/readme)
 
 # miracle.save
 Tiny clojure lib for saving/loading local bindings, useful for debugging.
