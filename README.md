@@ -1,6 +1,10 @@
 # miracle.save
 Tiny clojure lib for saving/loading local bindings, useful for debugging.
 
+Use `save-var*` to automatically capture arguments and return values of 
+a function or `save-ns*` to do so for all functions in a namespace.
+Access the values via `print-saves` or `@f-saves`.
+
 Example of usage:
 ```clojure
 (use 'miracle.save)
@@ -60,3 +64,7 @@ Try it out with:
   {:git/url "https://github.com/saikyun/miracle.save"
    :sha     "3d54fe9904fd324b82acb2692d46d227505f3891"}}}
 ```
+
+## Similar libraries
+
+* [scope-capture](https://github.com/vvvvalvalval/scope-capture) - capture the arguments passed to a wrapped expression and recreate them as global `def`s or a `let`. Also breakpoint/continue functionality.
