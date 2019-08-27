@@ -4,11 +4,30 @@
 # miracle.save
 Tiny clojure lib for saving/loading local bindings, useful for debugging.
 
+# `save` and `ld`
+Use `save` to store the bindings at the place `save` was called. Use `ld` to load those bindings (i.e. `def` them).
+
+## Example usage
+```clojure
+(defn add [x y] (save :a) (+ x y))
+(add 5 10)
+(ld :a)
+x ;; 5
+y ;; 10
+  
+(add 20 30)
+(add 7 13)
+  
+(print-saves :a)
+```
+
+# `save-var*`
+
 Use `save-var*` to automatically capture arguments and return values of 
 a function or `save-ns*` to do so for all functions in a namespace.
 Access the values via `print-saves` or `@f-saves`.
 
-Example of usage:
+## Example usage
 ```clojure
 (use 'miracle.save)
 
