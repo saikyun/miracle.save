@@ -9,6 +9,8 @@ Use `save` to store the bindings at the place `save` was called. Use `ld` to loa
 
 ## Example usage
 ```clojure
+(use 'miracle.save)
+
 (defn add [x y] (save :a) (+ x y))
 (add 5 10)
 (ld :a)
@@ -28,30 +30,6 @@ a function or `save-ns*` to do so for all functions in a namespace.
 Access the values via `print-saves` or `@f-saves`.
 
 ## Example usage
-```clojure
-(use 'miracle.save)
-
-(defn add [x y] (save :a) (+ x y))
-(add 5 10)
-(ld :a)
-x ;;=> 5
-y ;;=> 10
-
-(add 20 30)
-(add 7 13)
- 
-(print-saves :a)
-;; Entry no. 2
-;; {x 5, y 10}
-;;
-;; Entry no. 1
-;; {x 20, y 30}
-;;
-;; Entry no. 0
-;; {x 7, y 13}
-```
-
-Example of usage on functions:
 ```clojure
 (use 'miracle.save)
 
