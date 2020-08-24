@@ -1,4 +1,4 @@
-(ns miracle.save.cljs
+(ns miracle.cljs.save
   (:require [clojure.pprint]))
 
 (defonce id (atom 0))
@@ -23,17 +23,17 @@
   ([form id]
    (eval-in-context form
                     id
-                    (-> @miracle.save.cljs/saves
+                    (-> @miracle.cljs.save/saves
                         (get id)
                         last
                         first)))
   ([form id pos]
    (let [locals (second (first (filter #(= (first %) pos)
-                                       (-> @miracle.save.cljs/saves
+                                       (-> @miracle.cljs.save/saves
                                            (get id)))))
          ks (keys locals)]
      `(let [~'all (second (first (filter #(= (first %) ~pos)
-                                         (-> @miracle.save.cljs/saves
+                                         (-> @miracle.cljs.save/saves
                                              (get ~id)))))
             ~@(apply concat (for [k ks] [k `(get ~'all '~k)]))]
         ~form))))

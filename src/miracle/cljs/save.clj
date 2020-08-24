@@ -1,10 +1,10 @@
-(ns miracle.save.cljs)
+(ns miracle.cljs.save)
 
 (defmacro save
   "Used to save all local bindings, takes an identifier as a parameter.
   The identifier is used with `ld` in order to load the local bindings where `save` was called."
   [key]
-  `(do (swap! miracle.save.cljs/saves
+  `(do (swap! miracle.cljs.save/saves
               update
               ~key
               #(into []
@@ -21,7 +21,7 @@
   "Used to save all local bindings, takes an identifier as a parameter.
   The identifier is used with `ld` in order to load the local bindings where `save` was called."
   [key & body]
-  `(let [~'_ (swap! miracle.save.cljs/saves
+  `(let [~'_ (swap! miracle.cljs.save/saves
                     update
                     ~key
                     #(into []

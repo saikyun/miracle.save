@@ -1,4 +1,4 @@
-(ns miracle.save.clj
+(ns miracle.clj.save
   (:require [clojure.pprint]))
 
 (def ^:dynamic *max-saves* "The maximum number of saves per id." 100)
@@ -37,7 +37,7 @@
   The identifier is used with `ld` in order to load the local bindings where `save` was called."
   [& args]
   (apply save-fn
-         'miracle.save.clj/saves
+         'miracle.clj.save/saves
          (into {} (for [k (keys &env)]
                     [`'~k k]))
          args))
@@ -173,7 +173,7 @@
   "Applies `save-var*` to all function vars in a namespace."
   [ns]
   (let [ns (the-ns ns)]
-    (when-not ('#{clojure.core miracle.save.clj} (.getName ns))
+    (when-not ('#{clojure.core miracle.clj.save} (.getName ns))
       (let [ns-fns (->> ns ns-interns vals (filter (comp fn? var-get)))]
         (doseq [f ns-fns]
           (save-var* f))))))
